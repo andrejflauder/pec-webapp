@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8' />
+    <title>Papuk Extreme Challenge</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.css' rel='stylesheet' />
+    <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="script/ZipFile.complete.js"></script>
+    <script src="script/geoxmlv3.js"></script>
+  </head>
+  <link rel="stylesheet" href="styles/main.css">
+  <body>
+    <div id="map"></div>
+
+<script type="text/javascript" src="script/camp-activos.js"></script>
+
+<script type="text/javascript" src="script/mtb-marathon.js"></script>
+
+<script type="text/javascript" src="script/papuk-downhill-race.js"></script>
+
+<script type="text/javascript" src="script/papuk-marathon.js"></script>
+
+<script type="text/javascript" src="script/triathlon.js"></script>
+
+<script type="text/javascript" src="script/viking-warrior-race.js"></script>
+    
+<script type="text/javascript" src="script/init-map.js"></script>
+    
+
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBST_jsSBuIeJvWtmm35rDUBMoBoavR5HY&callback=initMap">
+    </script>
+
+
+<div id="legenda">
+        <img id="pec-logo" src="https://i.imgur.com/n2fI2Eh.png">
+        <p id="author">Powered by: Andrej Flauder</p>
+
+        <h5 id='info'> <img src="http://maps.google.com/mapfiles/kml/pal3/icon56.png"> <a href="#application">Application</a></h5>
+
+        <h5 id='triathlon' class="tab tablink" onclick="triathlonFunction(), openTab(event, 'triathlon-race')"> <img src="https://i.imgur.com/98HBLdo.png"> <a href="#triathlon-race" class="triathlon-race-paragraph">Cross Triathlon Championship</a></h5>
+
+        <h5 id='dhtrail' class="tab tablink" onclick="dhTrailFunction(), openTab(event, 'papuk-downhill-race')"> <img src="https://i.imgur.com/mdbNZUe.png"> <a href="#papuk-downhill-race" class="papuk-downhill-race-paragraph">Papuk Downhill Race</a></h5>
+
+        <h5 id='vwtrail' class="tab tablink" onclick="vwFunction(), openTab(event, 'viking-warrior-race')"> <img src="https://i.imgur.com/edNBOH2.png"> <a href="#viking-warrior-race" class="viking-warrior-race-paragraph">Viking Warrior Race</a></h5>
+
+        <h5 id='pmtrail' class="tab tablink" onclick="papukMarathonFunction(), openTab(event, 'papuk-marathon-race')"> <img src="https://i.imgur.com/ro6S6HF.png"> <a href="#papuk-marathon-race" class="papuk-marathon-race-paragraph">Papuk Marathon Race</a></h5>
+
+        <h5 id='mtbmarathon' class="tab tablink" onclick="mtbFunction(), openTab(event, 'mtbmarathon-race')"> <img src="https://i.imgur.com/biwp2Uj.png"> <a href="#mtbmarathon-race" class="mtbmarathon-race-paragraph">MTB Papuk Adventure Race</a></h5>    
+
+        <h5 id='camp' class="tab tablink" onclick="campFunction(), openTab(event, 'camp-active-os')"> <img src="https://i.imgur.com/kdGGjJ3.png"> <a href="#camp-active-os" class="camp-active-os-paragraph">Camp Active Os</a></h5>
+
+        <h5 id='shover'> <img src="https://i.imgur.com/L9A3lya.png"> <a href="#shower"> Shower</a></h5>
+
+        <h5 id='wc'> <img src="https://i.imgur.com/U34N6bc.png"> <a href="#shower"> Toilets</a></h5>
+
+        <h5 id='food'> <img src="https://i.imgur.com/5BvUlNG.png"> <a href="#food"> Food</a></h5>
+</div>
+
+<div class="container intro">
+
+  <div id="application" class="application-paragraph paragraph">
+      <h2 class="x tab"><a href>Close</a></h2>
+      <h3><br>Application</h3>      
+      <p>     
+        FRIDAY: <br>
+        09:00 - Viking Warrior Race (High schools/Elementary schools)<br><br>
+
+        SATURDAY:<br>
+        07:00 - 09:15 - MTB Papuk Adventure Race<br>
+        09:00 - 09:45 - Papuk Marathon<br>
+        14:00 - Sprint triathlon<br><br>
+
+        SUNDAY:<br>
+        08:00 - Papuk Downhill Race<br>
+        10:00 - Viking Warrior Race<br>
+        11:00 - Sprint Cross Triathlon<br>
+        11:30 - Slavonia and Baranja Swimming Marathon Championship 
+      </p>
+  </div>
+
+    <div id="triathlon-race" class="triathlon-race-paragraph paragraph">
+      <h2 class="x tab"><a href>Close</a></h2>
+      <h3 style="color: #4d79ff;"><br>Cross Triathlon Championship</h3>    
+      <p>     
+        COMPETITION DISCIPLINE:<br>
+        Racing:<br>
+        - Croatian Championship in Sprint Cross Triathlon<br>
+        - Croatian Championship in Supersprint Cross Triathlon<br>
+        - Sprint cross triathlon rods<br>
+        - Supersprint Triathlon - Rods<br><br>
+
+        RACE START:<br>
+        Saturday, June 2:<br>
+        16:00 - Start Croatian Championships in Sprint Cross Triathlon and Rodent<br>
+        Sunday, June 3:<br>
+        13:00 - Start Croatian Championships in Supersprint Cross Triathlon and Rods<br><br>
+
+        TRAILS:<br>
+        SPRINT KROS TRIATLON:<br>
+        - swimming 500 m (2 x 250 m)<br>
+        - bicycle 12 km (2 x 6 km)<br>
+        - running 3 km (2 x 1.5 Km)<br><br>
+
+        SUPERSPRINT KROS TRIATLON:<br>
+        - swimming 250 m<br>
+        - bicycle 6 km<br>
+        - run 1.5 km<br><br>
+
+        CATEGORIES:<br>
+        Categories for Croatian Championships by HTS rules<br>
+        Categories for Open Championships in Slavonia and Baranja:<br><br>
+
+        MEN<br>
+        Cadets: up to 15 years<br>
+        Younger juniors: 16 - 17 years old<br>
+        Juniors: 18 - 19 yrs<br>
+        Seniors: 20 - 29 years old<br>
+        Seniors 2: from 30 to 39 years<br>
+        Veterans 1: 40 - 44 years old<br>
+        Veterans 2: 45 - 49 years old<br>
+        Veterans 3: from 50 to 54 years<br>
+        Veterans 4: from 55 to 59 years<br>
+        Veterans 5: 60 and over<br><br>
+
+        WOMEN<br>
+        Cadet: up to 15 years<br>
+        Younger juniors: from 16 to 17 years old<br>
+        Junior Girls: 18 - 19 yrs<br>
+        Senior women: from 20 to 29 years<br>
+        Seniores 2: from 30 to 39 years<br>
+        Veterans 1: 40 - 49 years old<br>
+        Veterans 2: from 50 to 59 years<br><br>
+
+        ENTRY FEE:<br>
+        entry fee<br>
+        - cadets: 0 Kn<br>
+        - juniors: 30 Kn<br>
+        - others: 50 Kn<br>
+        FOR APPLICATIONS AFTER MAY 1:<br>
+        the starting amount is increased by 50%, while the cadets will be 30 kn.<br>
+        Startnina uključuje:<br>
+        participation in races, refreshment and swing after the competition, gift package<br>
+        T-shirt and lunch are not included in the price, but each competitor will be able to choose between different<br>
+        Slavonian specialties at promotional prices and a shirt, and all the revenue from donations<br>
+        serves for the departure of the Croatian Junior Team at the World Championships in the Cross Triathlon
+        Denmark!<br>
+        All participants are provided with breakfast, lunch and dinner for a three-day festival.<br><br>
+
+        PEHARI AND AWARDS:<br>
+        Cups for the top three in each age group<br>
+        Sponsor Awards for the top three in all categories<br><br>
+
+        COMPETITION RULES:<br>
+        - determined by HTS and ITU rules<br>
+        - Protective helmets are obligatory!<br>
+        - Performance is at Your own risk!<br>
+        - Swimsuits are allowed by ITU rules, the expected water temperature is 20-22 ° C<br><br>
+
+        COMPETITION PROGRAM:<br>
+        SATURDAY,<br>
+        June 2nd, Croatian Championship in Sprint Triathlon<br>
+        14:00 Raising start numbers<br>
+        15:00 Opening Change Zone and Closing the Login<br>
+        15:45 Closing the change zone<br>
+        15:50 Official opening of the competition and technical briefing<br>
+        16:00 Start<br>
+        18:00 Opening the Zone for competitors to bring out the equipment<br>
+        18:30 Announcement of the winner<br><br>
+
+        SUNDAY<br>
+         June 3rd, Croatian Championship in Super Sprint Cross Triathlon<br>
+        11:00 Raising start numbers<br>
+        12:00 Opening Change Zone and Closing the Login<br>
+        12:45 Closing the change zone<br>
+        12:50 Official opening of the competition and technical briefing<br>
+        13:00 Start<br>
+        15:00 Opening the Zone for competitors to bring out the equipment<br>
+        15:30 Announcement of the winner<br><br>
+
+        CONTACT PERSONS:<br>
+        Nikola Borić<br>
+        mob: 091/594 8241<br>
+        e-mail: pk.orahovica@gmail.com<br>
+        Borna Katić<br>
+        099/792 0108<br>
+        e-mail: katicborna@gmail.com<br>
+        Ada Tikvan<br>
+        091/619 9896<br>
+        e-mail: ada.tikvan@gmail.com<br>
+      </p>
+  </div>
+
+  <div id="papuk-downhill-race" class="papuk-downhill-race-paragraph paragraph">
+      <h2 class="x tab"><a href>Close</a></h2>
+      <h3 style="color: red;"><br>Papuk Downhill Race</h3>      
+      <p>     
+        ENTRY FEE: 100kn/13€ (By May 21st) <br>
+        Payment: to bank account HR88 2500009-1102183480 (Addiko bank). <br>
+        When applying for a description <br>
+        insert your name and surname. <br>
+        <br>
+        PARTICIPATION RULES: <br>
+        - It is necessary to wear a helmet <br>
+        - Parent or guardian signature is required <br> 
+        on Application of MTB downhill for juvenile participants <br>        
+        - All participants must sign participation on their own <br>
+         responsibility at the site events <br>
+        - Driving takes place within marked paths <br>
+        - Trainings, qualifications and final ride when instructed
+         by the organizers <br>
+        <br>
+        RACE SCHEDULE: <br>
+        Sunday 3.6. <br>
+        08:00 - Registration <br>
+        08:30 - Gathering at the parking lot next to the lake, boarding the van <br>
+        09:00 - 11:00 - Training <br>
+        12:30 - Gathering at the parking lot next to the lake, boarding the van for qualifications ride <br>
+        13:00 - Qualifications ride <br>
+        14:30 - Gathering at the parking lot next to the lake, boarding the van for final ride <br>
+        15:00 - Final ride <br>
+        16:30 - Award ceremony <br>
+        <br>
+        * The organizer reserves the right to change the promotion <br>
+        <br>
+        CONTACT: <br>
+        Andrej Flauder <br>
+        Mob: 0911907094 <br>
+        E-mail: hello@weekendwarriros.bike
+      </p>
+  </div>
+
+  <div id="viking-warrior-race" class="viking-warrior-race-paragraph paragraph">
+      <h2 class="x tab"><a href>Close</a></h2>
+      <h3 style="color: yellow;"><br>Viking Warrior Race</h3>      
+      <p>     
+        COMPETITION DISCIPLINES:<br>
+        Individuals racing<br>
+        Racing teams<br><br>
+
+        RACE STARTS:<br>
+        Friday, June 1:<br><br>
+
+        10: 00h - Individuals (elementary schools)<br>
+        10: 00h - Teams (high schools)<br><br>
+
+        Sunday, June 3:<br><br>
+
+        10: 00h - Individuals (men / women)<br>
+        12: 00h - Teams (mixed-2 M and 1 W)<br><br>
+
+        TRAILS:<br>
+        SPRINT POINTS (elementary school girls / boys):<br>
+        - 500 m - (1st-4th grade) - 5 obstacles<br>
+        - 1000 m (1 km) - (5-8th grade) - 10 obstacles<br><br>
+
+        SPRINT TEAMS (high school - mixed):<br>
+        - 3000m (3km) - 20 obstacles<br>
+
+        SPRINT POINTS / TEAMS (adults):<br>
+        - 5000m (5km) - 40 obstacles<br><br>
+
+        CATEGORIES:<br>
+        ELEMENTARY SCHOOLS - girls and boys - 1st - 8th grade<br>
+        HIGH SCHOOLS - girls and young men - 1.-4. class<br>
+        INDIVIDUALS AND TEAMS (seniors)<br><br>
+
+        POINTS - all adults over 18 years of age.<br>
+        The minimum age is 16 years. with the signature / consent of the parent / guardian.<br>
+        18-23 years. VIKING JUNIOR<br>
+        24-30 years. VIKING ELITE (men / women)<br>
+        31-35 yr. VIKING ELITE MASTER 1 (men / women)<br>
+        36-40 years. VIKING MASTER 2 (men / women)<br>
+        41-45 yr. VIKING MASTER 3 (men / women)<br>
+        46-50 years. VIKING MASTER 4 (men / women)<br>
+        50+ years. VIKING MASTER 5 (men / women)<br>
+        TEAMS - It consists of 3 adult members or one non adult member at the age of 16-18. which for<br>
+        the performance has the signature of the parent / guardian and at least one person of the female gender. Possible all 3<br>
+        a member of a team female gender. Each team at the application chooses the name / team name.<br><br>
+
+        COMPETITION RULES:<br>
+        Competitors run the right marked route. At checkpoints, obstacles, it will be located<br>
+        judges who will record your correct or wrong passage of obstacles. For every obstacle<br>
+        you can not overcome, you will receive a 2-minute penalty. You keep the punishment in the way that there will be an obstacle next to it<br>
+        penality boxes where you will have to stand 2 min before you continue the race.<br>
+        Each competitor will have a chip that will record the time of the path crossing. Each competitor<br>
+        he will have a number on himself.<br>
+        - Protective helmets are not required!<br>
+        - Performance is at Your own risk!<br>
+        - Swimsuits / racing equipment is allowed. Each competitor chooses what to do in<br>
+        which feels the most comfortable / safest. Keep in mind that race in mud, leads to rocky terrain.<br><br>
+
+        COMPETITION PROGRAM:<br>
+        Friday, June 1:<br><br>
+
+        SPRINT POINTS (elementary schools)<br>
+        SPRINT TIMES (high schools)<br>
+        09:00 Raising start numbers<br>
+        10:00 START - starting from 1st grade and upwards<br>
+        12:30 Completion of all races by class<br>
+        13:00 Announcement of the winner<br><br>
+
+        Sunday, June 3:<br><br>
+
+        SPRINT POINTS / TIMES<br>
+        10:00 Starting Points (INDIVIDUALS)<br>
+        11:00 Closing the registration (INDIVIDUALS / TEAMS)<br>
+        11:30 START INDIVIDUALS<br>
+        12.00 START TEAMS<br>
+        13:00 END OF RACE<br>
+        15:30 Announcement of the winner (POINTS / TEAMS)<br>
+
+        ENTRY FEE:<br>
+        ELEMENTARY SCHOOLS: 0 kn<br>
+        HIGH SCHOOLS: 0 kn<br>
+        POINTS: 100 kn<br>
+        TEAMS: 200 kn (per team)<br>
+        For applications after May 1, the start is increased by 50%.<br>
+        Applications will be received by May 21st. Subsequent registration is not possible.<br><br>
+
+        ENTRY FEE INCLUDES:<br>
+        Participation in races, refreshment and swing after the competition, race number and souvenir.<br><br>
+
+        T-shirt and lunch are not included in the price, but each competitor will be able to choose between different<br>
+        Slavonian specialties at promotional prices and a shirt, and all the revenue collected from<br>
+        the donation serves for the departure of the Croatian Junior Team to the World Cup in the cross<br>
+        triathlon in Denmark.<br><br>
+
+        PAYMENTS FOR RUNNING TO WALK ASSOCIATION ACCOUNT:<br>
+        DSRV "VIKING" FERIČANCI<br>
+        HR4723600001102350010<br>
+        FB site: https://www.facebook.com/papukextremechallenge/<br><br>
+
+        You can find more information at contact person. The organizer reserves the right to change the announcement.<br><br>
+
+        CONTACT PERSONS:<br>
+        Stjepan Ostroški<br>
+        mob: 091 / 567-9137<br>
+        email: ostroskis@gmail.com<br><br>
+
+        Ana Doljanin<br>
+        Mob: 098 / 908-7619<br>
+        email: doljanin.ana@gmail.com
+      </p>
+  </div>
+
+  <div id="camp-active-os" class="camp-active-os-paragraph paragraph">
+      <h2 class="x tab"><a href>Close</a></h2>
+      <h3 style="color: orange;"><br>Camp Active-OS</h3>      
+      <p>     
+        As part of the sports event Papuk Extreme Challenge, the Osijek Association Aktiv-Os organizes camping in tents for <br>
+        children between the ages of 10 and 18, and a series of sports workshops and activities where the emphasis is on learning and learning new
+        skill.<br>
+        The base camp and tents will be located on a fenced grassy shore in the Papuk Nature Park just 10 m from<br>
+        Orahovac Lakes and just a few meters from the finish line of all the Festival races.<br>
+        We invite all sports clubs across Croatia to use 50% discounted Croatian Railways tickets!<br>
+        Sports Camp for Children "Papuk Aktiv"<br><br>        
+
+        We provided:<br>
+        - place for tents in enclosed camp, firewood, 24 hours supervision, first aid, toilet, water, managers, school hall<br>
+        (in the case of thunderstorms)<br>
+        - Meals: Fridays (lunch, dinner + water and juice), Saturday (breakfast, lunch, dinner + juice and water), Sunday (breakfast, lunch)<br>
+        Each meal is a choice between five different types of cooked or roasted meals in unlimited quantities<br>
+        -Repair with 50% train from all over Croatia<br>
+        -Support to purchase equipment at Dechatlon (more details soon)<br>
+        It is necessary to bring:<br>
+        Tent (for 1,2,3,4 persons), sleeping bag, light-carry and head, 1 bag for clothes and footwear,<br>
+        suitable clothing and footwear (rain jacket, 4 x long trousers, rifle, 3 shorts, 2 x thick thick t-shirt, 3 x<br>
+        short sleeve t-shirt, 4 x socks, 4 x trousers, mountaineering slippers), save half of the clothes in bags (in case of rain)<br>
+        1 backpack for equipment,<br>
+        sportswear and footwear (for competitions, running shoes, swimwear, swimming glasses),<br>
+        plastic water bottle (0.7 / 1.5 l),<br>
+        all for personal hygiene (calendula, toothbrush, soap, shampoo, deodorant),<br>
+        money for food<br><br>
+
+        Organized Workshops and Events:<br>
+        - Hiking trail with educational trails to Ružica Grada, Stari Grad<br>
+        -Sports activities and group games (beach volleyball, polygons, jogging, football, picigin)<br>
+        -Exercise exercises, equilibrium exercises and proprioceptions<br>
+        -School running,<br>
+        -Swimming, swimming,<br>
+        - Self-weighting exercises for strength development,<br>
+        -Action of breathing and stretching exercises in sports,<br>
+        -Make proper movements and exercises in sports activities and daily activities<br>
+        - Help set up a tent, find out in nature<br>
+        -Kino in the open<br>
+        - Short and interesting practical training on ecology, nutrition, exercise, games, water safety (learn code<br>
+        Water Safety, Red Cross Program)<br>
+        -Training and meeting with competitive races<br>
+        All participants of the Sports Camp for Children have the right to perform at the Viking Warrior Race (Friday), Treking Race (Saturday),<br>
+        swim competition (Sunday)<br><br>
+
+        Price:<br>
+        2 nights from 01.06. - 03.06. (Friday-Saturday-Sunday) 200 kn (on behalf of the association) + 220 kn (meals, money)<br>
+        1 overnight from 02.06. - 03.06. (Saturday-Sunday) 150 kn (on behalf of the association) + 170 kn (meals, money)<br>
+        All participants of the Sports Camp for Children have the right to perform on the Viking Warrior Race (Friday), Treking Race (Saturday),<br>
+        swim competition (Sunday)<br>
+        Account of the Association: HR3223400091110811352<br>
+        More information about the Children's Sports Camp "Papuk Aktiv" at: rsa.aktivos@gmail.com,<br>
+        page of the association: @aktivosijek<br><br>
+
+        Leader:<br>
+        Mladen Maričić<br>
+        Swimming Coach, Swim Club Osijek-Žito<br>
+        Struč.spec. kinezitherapy<br>
+        Bacc. FRACTURES.<br>
+        Boris Maričić<br>
+        Master of Kinesiology<br><br>
+
+        Friday 01.06.<br>
+        - Arriving train participants throughout the day<br>
+        - Sign in to the info desk of the Sports Camp for Kids<br>
+        - Getting to know the terrain, setting up the tent,<br>
+        10:00 - VIKING WARRIOR RACE<br>
+        - Race Individuals (Primary School), Organizer: DSRV "VIKING", Feričanci<br>
+        13:30 - 15:30 - Lunch<br>
+        - Dating in the camp, getting acquainted, adapting, preparing<br>
+        - Short and Interesting Practical Education on Ecology, Nutrition, Exercise, Games, Water Safety (Learn<br>
+        the Water Safety Code, the Red Cross program<br>
+        16:00 - 17:15 - tour of the course and get acquainted with the Papuk Extreme Challenge competitions<br>
+        18:00 - 19:00 - Sports activities and group games (beach volleyball, polygons, jogging, football)<br>
+        19:30 - 20:30 - Dinner<br>
+        20:30 - 21:30 - socializing, preparing to sleep<br>
+        21:30 - 22:00 - going to sleep<br><br>
+
+        Saturday 02.06.<br>
+        07:00 - 08:30 - Breakfast<br>
+        09:00 - 10:00 - Driving, General Coordination of Exercise, Exercise Balance and Owns, Exercises with Your Own<br>
+        weight for strength development, application of breathing exercises and stretching in sports<br>
+        10:00 - 10:30 - running school<br>
+        Treking race<br>
+        11:00 - 12:30 - Walking on the trail with trails to Ružica Grada, Stari Grad<br>
+        13:00 - 15:30 - Lunch<br>
+        - Camping, getting to know, rest, preparing<br>
+        - Short and Interesting Practical Education on Ecology, Nutrition, Exercise, Games, Water Safety (Learn<br>
+        the Water Safety Code, the Red Cross program<br>
+        16:00 - 17:00 - Driving, General Coordination of Exercise, Exercise Balance and Owns, Exercises with Your Own<br>
+        weight for strength development, application of breathing and stretching exercises in sports, learning of proper movements and exercises in sports<br>
+        activities and everyday activities<br>
+        17:30 - 18:30 - Sports activities and group games (beach volleyball, polygons, jogging, football)<br>
+        19:00 - 20:00 - Dinner<br>
+        20:30 - 22:00 - outdoor cinema<br>
+        22:00 - 22:30 - going to sleep<br><br>
+
+        Sunday 03.06.<br>
+        07:00 - 09:00 Breakfast<br>
+        09:00 - 10:00 - Driving, General Coordination of Exercise, Exercise Balance and Ownsception, Exercises with Your Own<br>
+        weight for strength development, application of breathing exercises and stretching in sports<br>
+        Swimming Championships - Croatian Cup of Champions and Swimming Championships, Program and Tournament Hours:<br>
+        10:30 - Log the contestants<br>
+        12:30 - Opening of the competition<br>
+        13:00 - START<br>
+        15:00 - Announcement of the winner<br>
+        Supersprint Cross Triathlon and Supersprint Triathlon Rods<br>
+        11:00 Raising start numbers<br>
+        12:00 Opening Change Zone and Closing the Login<br>
+        12:45 Closing the change zone<br>
+        12:50 Official opening of the competition and technical briefing<br>
+        13:00 Start<br>
+        15:00 Opening the Zone for competitors to bring out the equipment<br>
+        15:30 Announcement of the winner<br>
+        11:00 - 12:30 - Walking on the trail with trails to Ružica Grada, Stari Grad<br>
+        13:00 - 15:30 - Lunch<br>
+        - Camping, getting to know, rest, preparing<br>
+        - Short and Interesting Practical Education on Ecology, Nutrition, Exercise, Games, Water Safety (Learn<br>
+        the Water Safety Code, the Red Cross program<br>
+        City Tour, Announcement of Race Winners, Departure to Houses<br>
+      </p>
+  </div>
+
+  <div id="papuk-marathon-race" class="papuk-marathon-race-paragraph paragraph">
+      <h2 class="x tab"><a href>Close</a></h2>
+      <h3 style="color: green;"><br>Papuk Marathon Race</h3>      
+      <p>     
+        As part of the celebration of the 50th Spring of Orahovac, SRK "Baraber" from Belišće invites you to<br>
+        a unique event "The Papuk Marathon", which is part of the outdoor Orahovica festival "Papuk"<br>
+        extreme challenge.<br><br>
+        
+        CATEGORIES:<br>
+        Marathon (42km), Halfmarathon (21km) and Recreation Center (11km)<br>
+        * mileage is not a frame ...<br><br>
+
+        FEE:<br>
+        Note 1:<br>
+        The 50 kn fee will be paid by 01.05.2018. at the organizer's giro account:<br>
+        IBAN: HR92 2340 0091 1103 4467 2 / SRK "Baraber", Bistrinačka 1, 31551 Belišće<br>
+        Please note the name and the name for the deposit when making a payment!<br>
+        Note 2:<br>
+        For applications and payments after 01.05.2018. quotation is increased by 50%<br>
+        Note 3:<br>
+        Foreign citizens pay a $ 75/10 EUR registration fee on race registrations !!!<br>
+        Entry fee includes the following items:<br>
+        1. Participation in the race<br>
+        2. Setting the track and the costs of field inspection<br>
+        3. Official measurement of time, processing and publication of results<br>
+        4. Refreshment and frustration during and after the race<br>
+        5. Finishing medals<br>
+        6. The Guardianship of the Croatian Mountain Rescue Service<br>
+        7. All necessary permits from the relevant institutions<br>
+        8. T-shirt and lunch are not included in the price but each competitor will be able to choose between different<br>
+        Slavonian specialties at promotional prices and the shirt if you want, and all the revenue<br>
+        collected from donations serves for the departure of the Croatian Junior Team at the World Cup in<br>
+        cross triathlon in Denmark.<br><br>
+
+        SCHEDULE:<br>
+        SATURDAY, 02.06.2018.<br>
+        07: 00-09: 45: Registration for the race (all categories)<br>
+        10:00 Start of all categories<br>
+        17:00 Limit to reach the goal for all categories<br>
+        17:00 Announcement of winners for all categories<br>
+        Note: If you are ranked among the top 3 places in your categories and you want to start off<br>
+        before from Orahovica, contact the organizer to give you medals and gift packages.<br><br>
+
+        URBAN RULES:<br>
+        1. Competitors must follow the marked route according to their category.<br>
+        The track is marked by existing marked hiking trails, and the trails or arrows on<br>
+        intersections. It is forbidden to use roads outside the track and to cross the track.<br>
+        2. Competitors compete on their own responsibility.<br>
+        5. Competitors must wear a start number chip throughout the race<br>
+        7. Competitors must abide by traffic rules as they race in some parts<br>
+        passing through the roads.<br>
+        8. Competitors must comply with all instructions from official persons at checkpoints,<br>
+        road crossings and all other locations.<br>
+        9. All withdrawers are obliged to notify the organizer by sending SMS to<br>
+        with its competitor's number, name and surname.<br>
+        10. All juveniles may participate solely with the escort and the responsibility of their parents.<br>
+        11. For non-compliance with these rules, the contestants will be disqualified.<br>
+        12. The organizer is not liable for any damage or loss of property or private property.<br>
+        13. All contestants who give up the race during the race are obliged to notify the organizer thereof, and if so<br>
+        it does not personally notify the organizers on the record table until the official end date<br>
+        the race will be subject to prohibition of participation in all subsequent races<br>
+        15. For emergency cases, the duty of the Croatian Mountain Rescue Service was engaged during the race.<br>
+        * ORGANIZER RESPONDS THE RIGHT TO CHANGE THE MEMORANDUM<br><br>
+
+        ORGANIZER CONTACT<br>
+        Mob: +385 98 635193, Angel<br>
+        E-mail: baraber.extreme.team@gmail.com
+      </p>
+  </div> 
+
+  <div id="mtbmarathon-race" class="mtbmarathon-race-paragraph paragraph">
+      <h2 class="x tab"><a href>Close</a></h2>
+      <h3 style="color: #ff00ff;"><br>MTB Papuk Adventure Race</h3>      
+      <p>     
+        STAGES AND CATEGORIES<br>
+        Route A - 65 km (about 1,500 meters uphill)<br>
+        MEN: 18-39 (2000 - 1979)<br>
+        MASTERS: 40+ (1978 +)<br>
+        WOMEN: 18+ (2000 +)<br>
+        Route B - 40 km (cca 800 meters uphill)<br>
+        MEN: 16-39 (2002 - 1979)<br>
+        MASTERS: 40+ (1978 +)<br>
+        WOMEN: 16+ (2002 +)<br>
+        All persons older than 18 years of age are on the right track, while on track B<br>
+        the right applies to all persons over the age of 16 on the day of the race. For persons older than 16<br>
+        under the age of 18 is required a statement by the parent or legal representative who is<br>
+        located at the end of the Race Rules.<br>
+        START CATEGORIES FOR ALL CATEGORIES ARE AT 10:00 AM<br><br>
+
+        APPLICATIONS AND STARTINGS<br>
+        1. Deadline for applications is 01.05.2018. at 23: 59h - startnina is 50,00 kuna<br>
+        2. The deadline for applications is 02.05.2018. until 21.05.2018. at 23: 59h - the start is<br>
+        increased by 50% and amounts to 75.00 kunas<br>
+        Applications will not be possible after 21.05.2018.<br>
+        Competitors applying outside the Republic of Croatia pay start-ups per day<br>
+        races according to the price depending on which time they have applied.<br>
+        Invoice in Addico Bank to start payment:<br>
+        BK Lood Orahovica, Riječani 82, Orahovica<br>
+        IBAN: HR7425000091102198573<br>
+        OBLIGATORY on the payer to enter the payer's name and last name.<br>
+        Payments will be received by 26.05.2018.<br>
+
+        STARTING INCLUDES:<br>
+        Start number<br>
+        Setting and marking the track<br>
+        Officially electronic time measurement<br>
+        Judge of the Croatian Bicycle Alliance<br>
+        Croatian Mountain Rescue Service (HGSS) - the station Orahovica<br>
+        Hike and refresh after the race<br>
+        Sponsorship gift packages for all contestants<br>
+        Medals for the first three contestants, ie contestants in each category<br>
+        Rich prizes for the top three in all categories<br>
+        Feed zones for kicking racing tracks<br>
+        Washing bikes after the race<br>
+        Posting Results After Race<br>
+        Food and drinks are not included in the start price. Full gastronomic offer<br>
+        will be available at affordable prices, and all the revenue from the donations to be collected<br>
+        will be used to leave the Junior Team in the Cross Triathlon on the World<br>
+        championship in Denmark.<br><br>
+
+        SATNICA UTRKE<br>
+        06/02/2018. (SATURDAY)<br>
+        07: 00h - 09: 15h Registering and raising start numbers<br>
+        09:40 Gathering at the starting position<br>
+        09: 50h Short information about the race<br>
+        10: 00h START race<br>
+        From 16: 30h WRITE AWARD FOR ALL CATEGORIES<br>
+        15: 30h TIME LIMIT for all categories<br>
+        5. REQUIRED AND RECOMMENDED EQUIPMENT<br>
+        Required equipment<br>
+        Correct MTB bike with a 26 ", 27.5" or 29 "wheel size. No road bike is allowed<br>
+        on the race. Wearing a helmet is compulsory. The propagation of the helmet is punished<br>
+        disqualification.<br>
+        Recommended equipment<br>
+        Minimum 2 liquid bidets. Energy plates, ie gels, and isotonic<br>
+        preparations for the long path.<br>
+
+        NOTES<br>
+        The race is conducted according to the rules of HBS, UCI and the rules determined by the organizer.<br>
+        Some sections of the track will be driven by roadways that will not be closed for<br>
+        traffic, so it is very important to comply with traffic regulations and increase the caution in the team<br>
+        parts.<br>
+        The race is in the HBS calendar, so all licensed and unlicensed drivers have<br>
+        the right to perform.<br>
+        The organizer delivers with himself any responsibility that the contestants may cause<br>
+        to yourself or to third parties.<br>
+        * The organizer reserves the right to change the Rules of the Race<br><br>
+
+        CONTACT<br>
+        Mario Vida - President of BK Lood<br>
+        mob.098 / 710-120<br>
+        Robert Hofman - Vice President BK Lood<br>
+        Mob. 091 / 5033-032<br>
+        Tomislav Katalinić - Secretary of BK Lood<br>
+        Mob. 099 / 270-6298<br>
+        email: bklood.orahovica@gmail.com<br>
+      </p>
+  </div>
+
+
+  
+</div>
+
+<script type="text/javascript" src="script/moving-paragraph.js"></script>
+
+<script type="text/javascript" src="script/paragraph-display.js"></script>
+
+
+  </body>
+</html>
