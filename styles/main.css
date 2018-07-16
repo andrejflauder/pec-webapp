@@ -1,0 +1,164 @@
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+      }
+      #map {
+        height: 75%;
+        width: 100%;
+      }
+      #legenda {position: fixed;
+        font-family: "Open Sans";
+        background: #333333;        
+        padding-left: 20px;
+        width: 98.5%;
+        height: 25%;
+        border-top: 5px solid black;
+        overflow: auto;
+      }
+
+      #legenda img {
+        vertical-align: middle;        
+      }
+
+      #pec-logo {position: fixed;
+                bottom: 5px;
+                right: 2%;
+                width: 150px;
+                opacity: 0.3;}
+
+      #author {position: fixed;
+                bottom: 0px;
+                right: 2%;
+                font-size: 12px;}
+
+      h5 {width: 300px;}
+
+      a:link {text-decoration: none;
+              color: white}
+      a:visited {text-decoration: none;
+                color: white}
+      a:hover {text-decoration: none;
+                color: #66ff66}      
+
+      .container {position: fixed;
+              bottom: 0px;
+              left: 0px;
+              width: 100%
+          }
+      
+      .intro-active {
+            -webkit-transition: all 1s ease;  
+              -moz-transition: all 1s ease;  
+              -o-transition: all 1s ease;  
+              -ms-transition: all 1s ease;  
+              transition: all 1s ease;
+              bottom: 24.4%;
+          }
+
+      .x {position: fixed;
+          margin-top: 0px;
+          text-align: center;
+          width: 100%;
+          background-color: black;
+          font-size: 15px;}
+      
+
+      #application {position: fixed;
+                    background: rgba(26, 26, 26, 0.8);
+                    color: white;
+                    filter: alpha(opacity=60);
+                    font-family: "Open Sans";
+                    text-align: center;
+                    height: 25%;
+                    width: 100%;
+                    overflow: auto;}
+
+      #papuk-downhill-race {position: fixed;
+                    background: rgba(26, 26, 26, 0.8);
+                    color: white;
+                    filter: alpha(opacity=60);
+                    font-family: "Open Sans";
+                    text-align: center;
+                    height: 25%;
+                    width: 100%;
+                    overflow: auto;}
+
+      #viking-warrior-race {position: fixed;
+                    background: rgba(26, 26, 26, 0.8);
+                    color: white;
+                    filter: alpha(opacity=60);
+                    font-family: "Open Sans";
+                    text-align: center;
+                    height: 25%;
+                    width: 100%;
+                    overflow: auto;}
+
+      #papuk-marathon-race {position: fixed;
+                    background: rgba(26, 26, 26, 0.8);
+                    color: white;
+                    filter: alpha(opacity=60);
+                    font-family: "Open Sans";
+                    text-align: center;
+                    height: 25%;
+                    width: 100%;
+                    overflow: auto;}
+
+      #camp-active-os {position: fixed;
+                    background: rgba(26, 26, 26, 0.8);
+                    color: white;
+                    filter: alpha(opacity=60);
+                    font-family: "Open Sans";
+                    text-align: center;
+                    height: 25%;
+                    width: 100%;
+                    overflow: auto;}
+
+      #triathlon-race {position: fixed;
+                    background: rgba(26, 26, 26, 0.8);
+                    color: white;
+                    filter: alpha(opacity=60);
+                    font-family: "Open Sans";
+                    text-align: center;
+                    height: 25%;
+                    width: 100%;
+                    overflow: auto;}
+
+      #mtbmarathon-race {position: fixed;
+                    background: rgba(26, 26, 26, 0.8);
+                    color: white;
+                    filter: alpha(opacity=60);
+                    font-family: "Open Sans";
+                    text-align: center;
+                    height: 25%;
+                    width: 100%;
+                    overflow: auto;}
+
+      #wc-shower {position: fixed;
+                    background: rgba(26, 26, 26, 0.8);
+                    color: white;
+                    filter: alpha(opacity=60);
+                    font-family: "Open Sans";
+                    text-align: center;
+                    height: 25%;
+                    width: 100%;
+                    overflow: auto;}
+     
+
+              /* width */
+              ::-webkit-scrollbar {
+                  width: 10px;
+              }
+              /* Track */
+              ::-webkit-scrollbar-track {
+                  background: white; 
+              }              
+              /* Handle */
+              ::-webkit-scrollbar-thumb {
+                  background: #262626;
+                  border-left: 1px solid white; 
+              }
+              /* Handle on hover */
+              ::-webkit-scrollbar-thumb:hover {
+                  background: #262626;}  
